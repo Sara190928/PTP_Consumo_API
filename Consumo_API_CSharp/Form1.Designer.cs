@@ -107,6 +107,16 @@ partial class Form1
         lblEstado.Size = new Size(696, 20);
         lblEstado.Text = "Pronto.";
         //
+        // Adicionar os controlos ao formulário
+        //
+        Controls.Add(lblTitulo);
+        Controls.Add(lblReferencia);
+        Controls.Add(txtReferencia);
+        Controls.Add(btnPesquisar);
+        Controls.Add(lblResultado);
+        Controls.Add(txtResultado);
+        Controls.Add(lblEstado);
+        //
         // Form1
         //
         AcceptButton = btnPesquisar;
