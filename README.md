@@ -1,32 +1,28 @@
 # PTP_Consumo_API
 
-Trabalho prático: **Consumo de Web API em C#** — projeto `Consumo_API_CSharp`.
+Trabalho prático: **Consumo de Web API em C#** — projeto `Consumo_API_CSharp` (Windows Forms).
 
 ## Descrição
 
-Aplicação de consola em C# que consome a **Bible API** ([bible-api.com](https://bible-api.com)) usando `HttpClient`, converte a resposta JSON para objetos estruturados com `System.Text.Json` e apresenta os dados ao utilizador, com tratamento de exceções para falhas de rede.
+Aplicação Windows Forms em C# que consome a **Bible API** ([bible-api.com](https://bible-api.com)) usando `HttpClient`, converte a resposta JSON para objetos estruturados com `System.Text.Json` e apresenta os dados ao utilizador, com tratamento de exceções para falhas de rede.
 
 ## Funcionalidades
 
 - Requisição HTTP **GET** com `HttpClient`
 - Deserialização JSON para objetos C# (`System.Text.Json`)
 - Blocos `try/catch` para erros de conexão, timeout, JSON inválido e erros inesperados
-- O utilizador pode escolher a referência bíblica (por omissão: `john 3:16`)
+- Interface gráfica com campo de pesquisa, botão **Pesquisar** e caixa de resultado
 
 ## Como executar
 
-Requer [.NET SDK 8.0+](https://dotnet.microsoft.com/download).
+Requer [.NET SDK 8.0+](https://dotnet.microsoft.com/download) com suporte a Windows Forms (Windows).
 
 ```bash
 cd Consumo_API_CSharp
 dotnet run
 ```
 
-Ou executar com uma referência específica:
-
-```bash
-dotnet run -- "genesis 1:1"
-```
+Ou executar diretamente o executável gerado em `bin\Debug\net10.0-windows\Consumo_API_CSharp.exe`.
 
 ## Estrutura do projeto
 
@@ -35,7 +31,9 @@ PTP_Consumo_API/
 ├── README.md
 └── Consumo_API_CSharp/
     ├── Consumo_API_CSharp.csproj
-    └── Program.cs
+    ├── Program.cs          // ponto de entrada
+    ├── Form1.cs            // lógica (HttpClient + JSON + try/catch)
+    └── Form1.Designer.cs   // layout do formulário
 ```
 
 ## API utilizada
@@ -54,3 +52,5 @@ Exemplo de resposta JSON:
   "translation_name": "World English Bible"
 }
 ```
+
+Referências aceites (nomes bíblicos em inglês): versículo (`john 3:16`), intervalo (`genesis 1:1-5`) ou capítulo inteiro (`psalm 23`).
